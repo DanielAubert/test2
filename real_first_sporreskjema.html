@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Spørreskjema
+	</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="real_first_style.css">
+</head>
+
+<body>
+
+<div id="navigation" style="background-image:url("file:///.file/id=6571367.8599533798")">	
+
+<a style="background-image:none;" onclick="location.href='real_first_hovedside.html'";>  <img src="file:///.file/id=6571367.8599533798" width=10%; height=1% align="center" style="border-radius:50%;"> </a>
+
+<a style=background-color:blue; onclick="location.href='real_first_hovedside.html'";>
+	Hovedside
+</a>
+<a style=background-color:green; onclick="location.href='real_first_matematikk.html'">
+	Slideshow av Alva
+</a>
+<a style=background-color:orange;>
+	Familie
+</a>
+	<a style=background-color:rgb(200,0,0); onclick='location.href="real_first_sporreskjema.html"'>
+		Spørreskjema
+	</a>
+<a style=background-color:rgb(160,100,0);>
+	App-laging
+</a>
+<a style=background-color:rgb(120,10,130);>
+	Om Daniel
+</a>
+
+</div>
+
+<h1 align='center' style="margin-top:0px;">
+	Spørreskjema
+</h1>	
+
+<p> Skriv inn ett tall imellom 2 og 6 </p>
+
+<input id="alder1" type="text" placeholder="123"> </input>
+<button type="button" onclick="minFunksjon()"> Skriv ett tall </button>
+<button type="button" onclick="Skjulfelt()"> Skjul </button>
+<style>
+	.democlass {
+		color:darkgreen;
+		background-color:black;
+
+	}
+</style>
+
+
+<p hidden id="p02"></p>
+
+<script>
+	"use strict"
+	function minFunksjon(){
+		var alder, beskjed;
+		alder = document.getElementById("alder1").value;
+		beskjed = document.getElementById("p02");
+		beskjed.innerHTML = "";
+		
+		try {
+			if (isNaN(alder)) throw "Rart tall! " + alder+" ?????";
+			if (alder == "") throw "Du må skrive noe da... tulling!!!";
+			alder = Number(alder);
+			if (alder<2) throw "For lite";
+			if (alder>6) throw "For stort";
+		}
+		catch(err) {
+			beskjed.innerHTML = "Det tallet du skrev var: " + err;
+			document.getElementById("p02").removeAttribute("hidden");
+		}
+		finally{
+			document.getElementById("alder1").value = "";
+		}
+	}
+	
+	function Skjulfelt() {
+		document.getElementById("p02").attributeName = "hidden";
+	}
+	
+</script>
+
+<style>
+#container {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  background-image: url("file:///.file/id=6571367.8599432473");
+  background-size: 350px 350px;
+  color:purple;
+  border-radius:10%;
+}
+#animate {
+  width:100%;
+  height:100%;
+  position: absolute;
+  background-color: red;
+  text-align: center;
+  text-vertical-align:middle;
+  background-size: 350px 350px;
+  margin: auto;
+  background-image: url("file:///.file/id=6571367.8599432988");
+  border-radius:10%;
+}
+#animate2 {
+  width:350px;
+  height:350px;
+  position: absolute;
+  background-color: red;
+  text-align: center;
+  text-vertical-align:middle;
+  margin: auto;
+  background-image: url("file:///.file/id=6571367.8599439232");
+  background-size: 350px 350px;
+  border-radius:10%;
+}
+#animate3 {
+  width:350px;
+  height:350px;
+  position: absolute;
+  background-color: red;
+  text-align: center;
+  text-vertical-align:middle;
+  margin: auto;
+  background-image: url("file:///.file/id=6571367.8599439232");
+  background-size: 350px 350px;
+  border-radius:10%;
+}
+
+</style>
+<body>
+
+<p>
+<button onclick="myMove()">Klikk knappen for en animasjon!!</button>
+<button onclick="mySecondMove()">Klikk denne knappen for å se hva som skjer nå! </button>
+</p> 
+
+<div id = "container">
+<div id = "animate3" style="background-image:url('file:///.file/id=6571367.8599439210'"> </div>
+<div id = "animate2"></div>
+<div id = "animate"></div>
+</div>
+
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+style="background-color:#D94A38;width:120px;height:20px;padding:40px">
+Mouse Over Me</div>
+
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+Click Me</div>
+
+<script>
+function mDown(obj) {
+    obj.style.backgroundColor = "#1ec5e5";
+    obj.innerHTML = "Release Me";
+}
+
+function mUp(obj) {
+    obj.style.backgroundColor="#D94A38";
+    obj.innerHTML="Thank You";
+}
+</script>
+
+
+
+
+<script>
+function mOver(obj) {
+    obj.innerHTML = "Thank You"
+}
+
+function mOut(obj) {
+    obj.innerHTML = "Mouse Over Me"
+}
+</script>
+
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");
+  var elem2 = document.getElementById("animate2");
+  var elem3 = document.getElementById("animate3") ; 
+  var pos = 0;
+  var id = setInterval(frame, 0.00001);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos = pos+2;  
+      elem.style.left = pos + 'px';
+	  elem2.style.left = pos +'px';
+	  elem2.style.top = pos + 'px';
+	  elem3.style.top = pos +'px';
+    }
+  }
+}
+
+</script>
+<p>This example uses the addEventListener() method to add two click events to the same button.</p>
+
+<button id="myBtn">Try it</button>
+
+<script>
+var x = document.getElementById("myBtn");
+x.addEventListener("click", myFunction);
+x.addEventListener("click", someOtherFunction);
+
+function myFunction() {
+    alert ("Hello World!");
+}
+
+function someOtherFunction() {
+    alert ("This function was also executed!");
+}
+</script>
+
+
+</body>
+</html>
